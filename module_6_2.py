@@ -1,11 +1,11 @@
 class Vehicle:
     COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
-    def __init__(self, owner, model, engine_power, color):
+    def __init__(self, owner, model, color, engine_power):
         self.owner = owner
         self.__model = model
-        self.__engine_power = engine_power
         self.__color = color
+        self.__engine_power = int(engine_power)
 
     def get_model(self):
         return self.__model
@@ -17,6 +17,7 @@ class Vehicle:
         return self.__color
 
     def set_color(self, color):
+        color = color.lower()
         if color in self.COLOR_VARIANTS:
             self.__color = color
         else:
@@ -32,8 +33,8 @@ class Vehicle:
 class Sedan(Vehicle):
     __PASSENGERS_LIMIT = 5
 
-    def __init__(self, owner, model, engine_power, color):
-        super().__init__(owner, model, engine_power, color)
+    def __init__(self, owner, model, color, engine_power):
+        super().__init__(owner, model, color, engine_power)
 
 
 vehicle1 = Sedan('Fedos', 'Toyota Mark II', 'blue', 500)
